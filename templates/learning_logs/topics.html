@@ -1,0 +1,40 @@
+{% extends "learning_logs/base.html" %}
+
+{% block header %}
+<h1>主题</h1>
+{% endblock header %}
+
+{% block content %}
+
+<ul>
+    <!--主题搜索表单-->
+    <div class="page-header" style="padding-top: 5px;">
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form" method="get" action="/search_topic/">
+                <div class="form-group">
+                    <input name="topic" type="text" placeholder="主题"
+                           class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">搜索</button>
+            </form>
+        </div>
+    </div>
+
+    {% for topic in topics %}
+    <li>
+        <h3>
+            <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+        </h3>
+
+    </li>
+    {% empty %}
+    <li>
+        当前主题还没有条目
+    </li>
+    {% endfor %}
+</ul>
+
+<h3><a href="{% url 'learning_logs:new_topic' %}">添加一个新主题</a></h3>
+
+{% endblock content %}
+

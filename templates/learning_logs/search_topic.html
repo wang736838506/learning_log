@@ -1,0 +1,15 @@
+{% extends "learning_Logs/base.html %}
+{% load bootstrap3 %}
+{% block content %}
+<!--主题搜索表单-->
+    <div class="page-header" style="padding-top: 20px;">
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form" method="get" action="/search_topic/">
+                <div class="form-group">
+                    <input name="topic" type="text" placeholder="主题"
+                           class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">搜索</button>
+            </form>
+        </div>
+    </div>
